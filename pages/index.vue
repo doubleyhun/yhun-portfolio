@@ -21,7 +21,7 @@
             size="64"
         ></v-avatar>
         <div>FE Develpoer</div>
-        <div>doubleyhun@gmain.com</div>
+        <div>doubleyhun@gmail.com</div>
       </v-sheet>
 
       <v-divider></v-divider>
