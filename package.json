@@ -12,5 +12,10 @@
     "@nuxt/devtools": "latest",
     "firebase-tools": "^12.5.2",
     "nuxt": "^3.7.1"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.2.96",
+    "sass": "^1.66.1",
+    "vuetify": "^3.3.15"
   }
 }
