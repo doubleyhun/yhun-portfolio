@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "firebase": "^10.3.1",
     "nuxt": "^3.7.1"
   }
 }
