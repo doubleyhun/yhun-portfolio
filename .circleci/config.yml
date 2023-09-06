@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-and-test:
+  build:
     working_directory: ~/project
     docker:
       - image: cimg/node:17.4.0
@@ -16,7 +16,6 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
-      - run: npm install --save-dev firebase-tools
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
@@ -29,17 +28,17 @@ jobs:
           key: nuxt3-public-cache-{{ .Branch }}
           paths:
             - ./.output/public
-
       # 4
       - run:
           name: Deploy app to Firebase
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+# 5
 workflows:
   version: 2
-    build-deploy:
-      jobs:
-          - build:
-            filters:
-              branches:
-                only:
-                  - main
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - main
