@@ -6,6 +6,10 @@
   const canVoteFunction = () => {
     return age.value >= 18 ? '가능' : '불가능'
   }
+  const testFunction = () => {
+    let test = 'test123'
+    return test
+  }
   console.log(age, canVote)
 </script>
 
@@ -15,9 +19,9 @@
     <li>나이: {{ age }}</li>
     <li>투표가 가능한가요?: {{ age >= 18? '가능' : '불가능' }}</li>
     <li>투표가 가능한가요?: {{ canVote }}</li>
-    <li>투표가 가능한가요?: {{ canVoteFunction }}</li>
+    <li>투표가 가능한가요?: {{ canVoteFunction() }}</li>
   </ul>
-
+  <div>{{ testFunction() }}</div>
   <v-btn @click="age--">나이 -</v-btn>
   <v-btn @click="age++">나이 +</v-btn>
 </template>

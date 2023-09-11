@@ -21,8 +21,7 @@ const cards = ['포트폴리오 1', '포트폴리오 2']
 
               <v-list-item-title :title="`Message ${n}`"></v-list-item-title>
 
-              <v-list-item-subtitle
-                  title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique"></v-list-item-subtitle>
+              <v-list-item-subtitle title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique"></v-list-item-subtitle>
             </v-list-item>
 
             <v-divider
@@ -36,3 +35,7 @@ const cards = ['포트폴리오 1', '포트폴리오 2']
     </v-col>
   </v-row>
 </template>
+
+<style scoped>
+
+</style>
