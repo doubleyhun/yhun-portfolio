@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-app>
-      <left-nav></left-nav>
+      <top-nav></top-nav>
       <v-container
-          class="py-8 px-6 container-left-nav"
+          class="py-8 px-6 mx-auto"
           fluid
       >
         <slot />
@@ -13,6 +13,6 @@
 </template>
 
 <script setup>
-import LeftNav from "~/components/nav/leftNav.vue";
+import TopNav from "~/components/nav/topNav.vue";
 </script>
 

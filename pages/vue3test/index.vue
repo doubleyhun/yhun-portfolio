@@ -10,7 +10,9 @@
     let test = 'test123'
     return test
   }
-  console.log(age, canVote)
+  watch(age, (newAge, oldAge) => {
+    console.log(newAge, oldAge)
+  })
 </script>
 
 <template>
@@ -21,7 +23,7 @@
     <li>투표가 가능한가요?: {{ canVote }}</li>
     <li>투표가 가능한가요?: {{ canVoteFunction() }}</li>
   </ul>
-  <div>{{ testFunction() }}</div>
+  <div>{{ testFunction }}</div>
   <v-btn @click="age--">나이 -</v-btn>
   <v-btn @click="age++">나이 +</v-btn>
 </template>
