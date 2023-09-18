@@ -6,53 +6,78 @@ const items = ref([
     icon: 'mdi-nuxt',
     name: '비즈엠',
     linkKey: true,
-    linkURL: 'http://dev-bizm-renewal.bizmsg.kr/'
+    linkURL: 'http://dev-bizm-renewal.bizmsg.kr/',
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Vue(Nuxt.js), Vuetify, SASS, Jenkins, Babel, ESLint',
   },
   {
     color: '#41B883',
     icon: 'mdi-nuxt',
     name: '스MART',
     linkKey: true,
-    linkURL: 'http://14.129.18.228/'
+    linkURL: 'http://14.129.18.228/',
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins, Babel, ESLint'
   },
   {
     color: '#41B883',
     icon: 'mdi-nuxt',
     name: '스윗트래커 공식 페이지',
     linkKey: true,
-    linkURL: 'http://www.sweettracker.co.kr/'
+    linkURL: 'http://www.sweettracker.co.kr/',
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins'
   },
   {
     color: '#41B883',
     icon: 'mdi-nuxt',
     name: '11번가 배송조회 추적 관리',
     linkKey: true,
-    linkURL: 'http://11st-admin.sweettracker.net/'
+    linkURL: 'http://11st-admin.sweettracker.net/',
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins'
   },
   {
     color: '#41B883',
     icon: 'mdi-nuxt',
     name: '스마트택배 API',
     linkKey: true,
-    linkURL: 'https://tracking.sweettracker.co.kr/'
+    linkURL: 'https://tracking.sweettracker.co.kr/',
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Vue, Nuxt.js, AngularJs, Bootstrap, Jenkins'
   },
   {
     color: '#f44336',
     icon: 'mdi-angularjs',
     name: '악성 파일 및 메일 탐지 시스템',
-    linkKey: false
+    linkKey: false,
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'AngularJs, Bootstrap'
   },
   {
     color: '#f44336',
     icon: 'mdi-angularjs',
     name: 'LogK',
-    linkKey: false
+    linkKey: false,
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'ELK(Elastic), AngularJs'
   },
   {
     color: '#0769AD',
     icon: 'mdi-jquery',
-    name: 'ADC Smart',
-    linkKey: false
+    name: 'ADCsmart',
+    linkKey: false,
+    summaryDesc: '프로젝트 간략 설명',
+    taskDesc: '내가 맡은 업무',
+    techDesc: 'Jquery, FreeMarker'
+
   },
 ])
 const linkPage = (linkURL) => {
@@ -62,9 +87,12 @@ const linkPage = (linkURL) => {
 
 <template>
   <v-row>
-    <div style="width: 800px" class="mx-auto">
-      <v-timeline align="center">
+    <div style="max-width: 800px" class="mx-auto xs">
+      <v-timeline
+          truncate-line="end"
+          align="center">
         <v-timeline-item
+            width="380"
             v-for="(item, i) in items"
             :key="i"
             :dot-color="item.color"
@@ -77,9 +105,37 @@ const linkPage = (linkURL) => {
               <div>{{ item.name }}</div>
             </v-card-title>
             <v-card-text class="bg-white text--primarym mt-4">
-              <p>Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod
-                convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an
-                salutandi sententiae.</p>
+              <div>GIF 들어갈 공간</div>
+              <div class="text-h6 mt-4">Summary</div>
+              <v-textarea
+                  hide-details
+                  no-resize
+                  readonly
+                  variant="plain"
+                  rows="2"
+                  v-model="item.summaryDesc"
+              >
+              </v-textarea>
+              <div class="text-h6 mt-4">Task</div>
+              <v-textarea
+                  hide-details
+                  no-resize
+                  readonly
+                  variant="plain"
+                  rows="2"
+                  v-model="item.taskDesc"
+              >
+              </v-textarea>
+              <div class="text-h6 mt-4">TECH</div>
+              <v-textarea
+                  hide-details
+                  no-resize
+                  readonly
+                  variant="plain"
+                  rows="2"
+                  v-model="item.techDesc"
+              >
+              </v-textarea>
               <v-btn
                   v-if="item.linkKey"
                   icon="mdi-link"
