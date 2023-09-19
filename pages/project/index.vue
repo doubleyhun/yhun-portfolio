@@ -93,6 +93,17 @@ onMounted(() => {
     itmeWidth.value = 300
   }
 })
+
+watch(mobile, (afterMobile, beforeMobile) => {
+  if (afterMobile) {
+    timeLineDensity.value = 'compact'
+    itmeWidth.value = 300
+  }
+  else {
+    timeLineDensity.value = 'default'
+    itmeWidth.value = 380
+  }
+})
 </script>
 
 <template>
