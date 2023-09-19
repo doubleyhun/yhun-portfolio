@@ -3,7 +3,7 @@ import {useDisplay} from "vuetify"
 
 const {mobile} = useDisplay()
 const timeLineDensity = ref('default')
-const itmeWidth = ref(380)
+const itmeWidth = ref(440)
 const items = ref([
   {
     color: '#41B883',
@@ -61,7 +61,7 @@ const items = ref([
     name: '악성 파일 및 메일 탐지 시스템',
     linkKey: false,
     summaryDesc: '프로젝트 간략 설명',
-    taskDesc: '내가 맡은 업무',
+    taskDesc: 'FE 기획참여,',
     techDesc: 'AngularJs, Bootstrap'
   },
   {
@@ -69,17 +69,26 @@ const items = ref([
     icon: 'mdi-angularjs',
     name: 'LogK',
     linkKey: false,
-    summaryDesc: '프로젝트 간략 설명',
-    taskDesc: '내가 맡은 업무',
-    techDesc: 'ELK(Elastic), AngularJs'
+    summaryDesc: [
+      '첫 단독 FE 프로젝트로 개발 효율성을 위해 AngularJs 제안 후 도입',
+      '획일적이고 효율적인 웹 디자인을 위해 Material 기반의 디자인 가이드 작성, 사내 FE팀(디자이너포함) 교육 진행',
+      '대용량 Log파일을 분석, 검색 하기 위해 ELK(현 Elastic)도입 Kibana 대시보드 커스터마이징 개발 담당',
+    ],
+    taskDesc: 'Kibana 커스터마이징, 대용량 Log 시각화, material design 가이드',
+    techDesc: 'ELK(현 Elastic), AngularJs'
   },
   {
     color: '#0769AD',
     icon: 'mdi-jquery',
     name: 'ADCsmart',
     linkKey: false,
-    summaryDesc: '프로젝트 간략 설명',
-    taskDesc: '내가 맡은 업무',
+    summaryDesc: [
+      'Jquery, FreeMarker를 기반으로 다기종 L4, L7을 통합 관리, 모니터링하는 솔루션을 개발',
+      '신규 개발 참여부터 2차례의 리뉴얼을 주도적으로 진행하면서 다소 딱딱한 L4, L7 스위치의 UI/UX를 트렌디하고 편리한 UI/UX로 제공',
+      '모니터링 모듈들을 한 페이지에 카드 형식으로 배치하고 저장하여 사용할 수 있는 커스터마이징 대시보드를 서드파티 없이 단독 개발 세일링 포인트에 적극 활용',
+      '수출형 모델을 위해 다국어 모듈 및 빌드 작업.'
+    ],
+    taskDesc: '리뉴얼, 디자인 개편, 커스터마이징 대시보드 개발, amChart 리팩토링, 국가별 다국어 빌드, 데이터 시각화',
     techDesc: 'Jquery, FreeMarker'
   }
 ])
@@ -90,18 +99,18 @@ const linkPage = (linkURL) => {
 onMounted(() => {
   if (mobile.value) {
     timeLineDensity.value = 'compact'
-    itmeWidth.value = 300
+    itmeWidth.value = 310
   }
 })
 
 watch(mobile, (afterMobile, beforeMobile) => {
   if (afterMobile) {
     timeLineDensity.value = 'compact'
-    itmeWidth.value = 300
+    itmeWidth.value = 310
   }
   else {
     timeLineDensity.value = 'default'
-    itmeWidth.value = 380
+    itmeWidth.value = 440
   }
 })
 </script>
@@ -129,32 +138,31 @@ watch(mobile, (afterMobile, beforeMobile) => {
             <v-card-text class="bg-white text--primarym mt-4">
               <div>GIF 들어갈 공간</div>
               <div class="text-h6 mt-4">Summary</div>
+              <div
+                  class="mb-2 display-flex"
+                  v-for="summaryDesc in item.summaryDesc">
+                <div>•</div>
+                <div>{{ summaryDesc }}</div>
+              </div>
+              <div class="text-h6 mt-4">Task keyword</div>
               <v-textarea
                   hide-details
                   no-resize
                   readonly
                   variant="plain"
-                  rows="2"
-                  v-model="item.summaryDesc"
-              >
-              </v-textarea>
-              <div class="text-h6 mt-4">Task</div>
-              <v-textarea
-                  hide-details
-                  no-resize
-                  readonly
-                  variant="plain"
-                  rows="2"
+                  auto-grow
+                  rows="1"
                   v-model="item.taskDesc"
               >
               </v-textarea>
-              <div class="text-h6 mt-4">TECH</div>
+              <div class="text-h6 mt-4">Tech</div>
               <v-textarea
                   hide-details
                   no-resize
                   readonly
                   variant="plain"
-                  rows="2"
+                  auto-grow
+                  rows="1"
                   v-model="item.techDesc"
               >
               </v-textarea>
