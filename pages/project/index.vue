@@ -1,5 +1,9 @@
 <script setup>
-const cards = ['포트폴리오 1', '포트폴리오 2']
+import {useDisplay} from "vuetify"
+
+const {mobile} = useDisplay()
+const timeLineDensity = ref('default')
+const itmeWidth = ref(380)
 const items = ref([
   {
     color: '#41B883',
@@ -77,22 +81,29 @@ const items = ref([
     summaryDesc: '프로젝트 간략 설명',
     taskDesc: '내가 맡은 업무',
     techDesc: 'Jquery, FreeMarker'
-
-  },
+  }
 ])
 const linkPage = (linkURL) => {
   window.open(linkURL, '_blank')
 }
+
+onMounted(() => {
+  if (mobile.value) {
+    timeLineDensity.value = 'compact'
+    itmeWidth.value = 300
+  }
+})
 </script>
 
 <template>
   <v-row>
-    <div style="max-width: 800px" class="mx-auto xs">
+    <div class="mx-auto">
       <v-timeline
+          :density="timeLineDensity"
           truncate-line="end"
           align="center">
         <v-timeline-item
-            width="380"
+            :width="itmeWidth"
             v-for="(item, i) in items"
             :key="i"
             :dot-color="item.color"

@@ -1,8 +1,5 @@
 <script setup>
 const tabKey = ref(null)
-watch(tabKey, (newTabKey, oldTabKey) => {
-  console.log(tabKey.value)
-})
 </script>
 
 <template>
