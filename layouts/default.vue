@@ -3,7 +3,7 @@
     <v-app>
       <top-nav></top-nav>
       <v-container
-          class="py-8 px-6 mx-auto"
+          class="py-8 mx-auto"
           fluid
       >
         <slot />

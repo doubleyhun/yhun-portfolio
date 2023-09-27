@@ -11,6 +11,6 @@ const tabKey = ref(null)
   >
     <v-tab to="/" class="text-h6 px-7">Profile</v-tab>
     <v-tab to="/project" class="text-h6 px-7">Project</v-tab>
-    <v-tab to="/vue3test" class="text-h6 px-7">Link</v-tab>
+    <v-tab to="/vue3test" class="text-h6 px-7">Sandbox</v-tab>
   </v-tabs>
 </template>
