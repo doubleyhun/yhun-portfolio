@@ -2,16 +2,37 @@
 import LeftNav from "~/components/nav/leftNav.vue";
 
 const cards = ['포트폴리오 1', '포트폴리오 2']
-const mainContainerStyle = ref()
+const mainContainerStyle = ref({
+  width: '960px'
+})
+const summaryDesc = ref(
+    '안녕하세요 양영훈입니다.\n' +
+    '\n' +
+    '10년차 FE 전문 개발자입니다.\n' +
+    '데이터의 시각화, 직관적이고 편리한 UI 개발을 통해 사용자 친화적인 UX 결과물을 도출하여 비즈니스에 기여하는 일을 최고의 목표로 삼습니다.\n' +
+    '\n' +
+    '스타트업에서 6년동안 B2B, B2C 웹서비스를 기획/개발/배포/운영 하였습니다. 수기 계약으로 API를 발급해 주는 사업을 계정 및 APIKEY 발급부터, 선불결제, 자동결제기능까지 제공하는 웹 서비스를 기획자 및 Backend 개발자와 머리를 맞대어 단독(FE)으로 진행해 본 경험이 있습니다.\n' +
+    '\n' +
+    '네트워크 보안 전문 기업에서 4년동안 데이터 모니터링 및 장비 설정 기능을 웹으로 개발/배포/운영 하였습니다. 주로 데이터 시각화에 노력을 기울였으며 엔터프라이즈급 및 국가 보안시설에 납품하여 유지보수한 경험이 있습니다.\n' +
+    '\n' +
+    '비효율적인 업무를 줄이고 자동화 하는데 즐거움을 느낍니다. 각 서비스에 제공되는 ‘개인정보처리방침’을 하나의 사이트에서 관리하고 include 하여 사용할 수 있도록 제공하는 등 단순 반복 업무들을 자동화하는 백오피스를 개발하여 운영인원들의 업무효율 증대에 기여했습니다.'
+)
 </script>
 <template>
-  <div :style="mainContainerStyle" class="mx-auto">
+  <div class="mx-auto" :style="mainContainerStyle">
   <v-row>
     <v-col cols="12" md="6" class="text-center">ddd</v-col>
     <v-col cols="12" md="6">
       <div class="text-h5 mb-6">About</div>
-      <div class="text-h6">간단한 어필 소개소개소개</div>
-        <div class="mb-4">예시 내용 예시 내용 예시 내용 예시 내용 예시 내용 예시 내용 예시 내용  </div>
+      <v-textarea
+          class="pt-0 mb-6"
+          hide-details
+          no-resize
+          readonly
+          variant="plain"
+          rows="20"
+        v-model="summaryDesc"
+      ></v-textarea>
       <v-divider></v-divider>
       <div class="text-h5 my-6">Biography</div>
       <div class="mb-6">
@@ -31,18 +52,10 @@ const mainContainerStyle = ref()
             <div>오픈베이스 기업 부설 연구소 소속 FE 개발자</div>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col cols="4">
-            <div>2012.08</div>
-          </v-col>
-          <v-col cols="8">
-            <div>한남대학교 멀티미디어 공학, 미디어영상학 학사</div>
-          </v-col>
-        </v-row>
       </div>
       <v-divider></v-divider>
       <div class="text-h5 my-6">Skills</div>
-      <v-row>
+      <v-row class="mb-6">
         <v-col cols="12" md="6">
           <v-alert
               class="my-2"
@@ -114,6 +127,18 @@ const mainContainerStyle = ref()
           </v-alert>
         </v-col>
       </v-row>
+      <v-divider></v-divider>
+      <div class="text-h5 my-6">Education</div>
+      <div class="mb-6">
+        <v-row>
+          <v-col cols="4">
+            <div>2006.03 ~ 2012.08</div>
+          </v-col>
+          <v-col cols="8">
+            <div>한남대학교 멀티미디어 공학, 미디어영상학 학사</div>
+          </v-col>
+        </v-row>
+      </div>
     </v-col>
   </v-row>
   </div>
