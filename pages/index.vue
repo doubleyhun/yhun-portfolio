@@ -5,12 +5,13 @@ const cards = ['포트폴리오 1', '포트폴리오 2']
 const mainContainerStyle = ref({
   width: '960px'
 })
-const summaryDesc = ref(
+const IntroDesc = ref(
     '안녕하세요 양영훈입니다.\n' +
     '\n' +
     '10년차 FE 전문 개발자입니다.\n' +
-    '데이터의 시각화, 직관적이고 편리한 UI 개발을 통해 사용자 친화적인 UX 결과물을 도출하여 비즈니스에 기여하는 일을 최고의 목표로 삼습니다.\n' +
-    '\n' +
+    '데이터의 시각화, 직관적이고 편리한 UI 개발을 통해 사용자 친화적인 UX 결과물을 도출하여 비즈니스에 기여하는 일을 최고의 목표로 삼습니다.'
+)
+const experienceDesc = ref(
     '스타트업에서 6년동안 B2B, B2C 웹서비스를 기획/개발/배포/운영 하였습니다. 수기 계약으로 API를 발급해 주는 사업을 계정 및 APIKEY 발급부터, 선불결제, 자동결제기능까지 제공하는 웹 서비스를 기획자 및 Backend 개발자와 머리를 맞대어 단독(FE)으로 진행해 본 경험이 있습니다.\n' +
     '\n' +
     '네트워크 보안 전문 기업에서 4년동안 데이터 모니터링 및 장비 설정 기능을 웹으로 개발/배포/운영 하였습니다. 주로 데이터 시각화에 노력을 기울였으며 엔터프라이즈급 및 국가 보안시설에 납품하여 유지보수한 경험이 있습니다.\n' +
@@ -23,17 +24,29 @@ const summaryDesc = ref(
   <v-row>
     <v-col cols="12" md="6" class="text-center">ddd</v-col>
     <v-col cols="12" md="6">
-      <div class="text-h5 mb-6">About</div>
+      <div class="text-h5">Intro</div>
       <v-textarea
           class="pt-0 mb-6"
           hide-details
           no-resize
           readonly
           variant="plain"
-          rows="20"
-        v-model="summaryDesc"
+          rows="5"
+        v-model="IntroDesc"
       ></v-textarea>
       <v-divider></v-divider>
+      <div class="text-h5 mt-6">experience</div>
+      <v-textarea
+          class="pt-0 mb-6"
+          hide-details
+          no-resize
+          readonly
+          variant="plain"
+          rows="14"
+          v-model="experienceDesc"
+      ></v-textarea>
+      <v-divider></v-divider>
+      <div class="text-h5 mb-6"></div>
       <div class="text-h5 my-6">Biography</div>
       <div class="mb-6">
         <v-row>
