@@ -8,7 +8,7 @@ const mainContainerStyle = ref({
 const IntroDesc = ref(
     '안녕하세요 양영훈입니다.\n' +
     '\n' +
-    '10년차 FE 전문 개발자입니다.\n' +
+    '10년차 FE 개발자입니다.\n' +
     '데이터의 시각화, 직관적이고 편리한 UI 개발을 통해 사용자 친화적인 UX 결과물을 도출하여 비즈니스에 기여하는 일을 최고의 목표로 삼습니다.'
 )
 const experienceDesc = ref(
