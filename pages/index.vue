@@ -18,7 +18,7 @@ const experienceDesc = ref(
     '비효율적인 업무를 줄이고 자동화 하는데 즐거움을 느낍니다. 각 서비스에 제공되는 ‘개인정보처리방침’을 하나의 사이트에서 관리하고 include 하여 사용할 수 있도록 제공하는 등 단순 반복 업무들을 자동화하는 백오피스를 개발하여 운영인원들의 업무효율 증대에 기여했습니다.'
 )
 
-onBeforeMount(() => {
+onMounted(() => {
   if (mobile.value)
     mainContainerWidth.value = '100%'
 })
@@ -36,7 +36,7 @@ watch(mobile, (afterMobile, beforeMobile) => {
       <v-col cols="12" md="6" class="text-center">
         <div class="mx-auto" style="width: 300px">
           <v-avatar :image="yhun" size="250"></v-avatar>
-          <div class="text-left mb-6">
+          <div class="text-left mb-12">
             <div class="my-6 text-h5">Contact</div>
             <div>Phone. 010-9936-0470</div>
             <div>Email. doubleyhun@gmail.com</div>
@@ -47,7 +47,7 @@ watch(mobile, (afterMobile, beforeMobile) => {
       <v-col cols="12" md="6">
         <div class="text-h5">Intro</div>
         <v-textarea
-            class="pt-0 mb-6"
+            class="pa-0"
             hide-details
             no-resize
             readonly
@@ -56,9 +56,9 @@ watch(mobile, (afterMobile, beforeMobile) => {
             v-model="IntroDesc"
         ></v-textarea>
         <v-divider></v-divider>
-        <div class="text-h5 mt-6">experience</div>
+        <div class="text-h5 mt-6">Experience</div>
         <v-textarea
-            class="pt-0 mb-6"
+            class="pt-0"
             hide-details
             no-resize
             readonly
