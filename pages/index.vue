@@ -3,7 +3,6 @@ import {useDisplay} from "vuetify"
 
 const {mobile} = useDisplay()
 const yhun = ref('/yhun.png')
-const mainContainerWidth = ref('960px')
 const IntroDesc = ref(
     '안녕하세요 양영훈입니다.\n' +
     '\n' +
@@ -17,21 +16,22 @@ const experienceDesc = ref(
     '\n' +
     '비효율적인 업무를 줄이고 자동화 하는데 즐거움을 느낍니다. 각 서비스에 제공되는 ‘개인정보처리방침’을 하나의 사이트에서 관리하고 include 하여 사용할 수 있도록 제공하는 등 단순 반복 업무들을 자동화하는 백오피스를 개발하여 운영인원들의 업무효율 증대에 기여했습니다.'
 )
-
-onMounted(() => {
-  if (mobile.value)
+//const mainContainerWidth = ref('960px')
+/*onMounted(() => {
+  if (mobile.value) {
     mainContainerWidth.value = '100%'
+  }
 })
-
 watch(mobile, (afterMobile, beforeMobile) => {
   if (afterMobile)
     mainContainerWidth.value = '100%'
   else
     mainContainerWidth.value = '960px'
-})
+})*/
+
 </script>
 <template>
-  <div class="mx-auto" :style="{ width: mainContainerWidth}" >
+  <div class="mx-auto profile-container">
     <v-row>
       <v-col cols="12" md="6" class="text-center">
         <div class="mx-auto" style="width: 300px">
