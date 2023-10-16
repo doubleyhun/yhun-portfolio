@@ -47,23 +47,23 @@ watch(mobile, (afterMobile, beforeMobile) => {
       <v-col cols="12" md="6">
         <div class="text-h5">Intro</div>
         <v-textarea
-            class="pa-0"
+            class="pa-0 profile-textarea"
             hide-details
             no-resize
             readonly
-            variant="plain"
             auto-grow
+            variant="plain"
             v-model="IntroDesc"
         ></v-textarea>
         <v-divider></v-divider>
         <div class="text-h5 mt-6">Experience</div>
         <v-textarea
-            class="pt-0"
+            class="pt-0 profile-textarea"
             hide-details
             no-resize
             readonly
-            variant="plain"
             auto-grow
+            variant="plain"
             v-model="experienceDesc"
         ></v-textarea>
         <v-divider></v-divider>
