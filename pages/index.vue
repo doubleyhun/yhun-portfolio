@@ -1,11 +1,9 @@
 <script setup>
-import LeftNav from "~/components/nav/leftNav.vue";
+import {useDisplay} from "vuetify"
 
+const {mobile} = useDisplay()
 const yhun = ref('/yhun.png')
-const cards = ['포트폴리오 1', '포트폴리오 2']
-const mainContainerStyle = ref({
-  width: '960px'
-})
+const mainContainerWidth = ref('960px')
 const IntroDesc = ref(
     '안녕하세요 양영훈입니다.\n' +
     '\n' +
@@ -19,18 +17,30 @@ const experienceDesc = ref(
     '\n' +
     '비효율적인 업무를 줄이고 자동화 하는데 즐거움을 느낍니다. 각 서비스에 제공되는 ‘개인정보처리방침’을 하나의 사이트에서 관리하고 include 하여 사용할 수 있도록 제공하는 등 단순 반복 업무들을 자동화하는 백오피스를 개발하여 운영인원들의 업무효율 증대에 기여했습니다.'
 )
+
+onBeforeMount(() => {
+  if (mobile.value)
+    mainContainerWidth.value = '100%'
+})
+
+watch(mobile, (afterMobile, beforeMobile) => {
+  if (afterMobile)
+    mainContainerWidth.value = '100%'
+  else
+    mainContainerWidth.value = '960px'
+})
 </script>
 <template>
-  <div class="mx-auto" :style="mainContainerStyle">
+  <div class="mx-auto" :style="{ width: mainContainerWidth}" >
     <v-row>
       <v-col cols="12" md="6" class="text-center">
         <div class="mx-auto" style="width: 300px">
           <v-avatar :image="yhun" size="250"></v-avatar>
-          <div class="text-left">
+          <div class="text-left mb-6">
             <div class="my-6 text-h5">Contact</div>
             <div>Phone. 010-9936-0470</div>
             <div>Email. doubleyhun@gmail.com</div>
-            <div>Github. <a href="https://github.com/doubleyhun">https://github.com/doubleyhun</a></div>
+            <div>Github. <a href="https://github.com/doubleyhun" target="_blank">https://github.com/doubleyhun</a></div>
           </div>
         </div>
       </v-col>
@@ -42,7 +52,7 @@ const experienceDesc = ref(
             no-resize
             readonly
             variant="plain"
-            rows="5"
+            auto-grow
             v-model="IntroDesc"
         ></v-textarea>
         <v-divider></v-divider>
@@ -53,7 +63,7 @@ const experienceDesc = ref(
             no-resize
             readonly
             variant="plain"
-            rows="14"
+            auto-grow
             v-model="experienceDesc"
         ></v-textarea>
         <v-divider></v-divider>
