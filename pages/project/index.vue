@@ -35,7 +35,16 @@ const items = ref([
       'Vuetify 기반 모바일 디자인 가이드 작성 사내 디자인 시스템 재정립으로 생산성 증대',
     ],
     taskDesc: '쇼핑몰, 최저가 검색, 반응형, 웹앱, 디자인 가이드',
-    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins, Babel, ESLint'
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins, Babel, ESLint',
+    imgKey: true,
+    imgList: [
+      '/smart/homepage_mov.mp4',
+      '/smart/smart1.png',
+      '/smart/smart2.png',
+      '/smart/smart3.png',
+      '/smart/smart4.png',
+      '/smart/smart5.png',
+    ]
   },
   {
     color: '#41B883',
@@ -51,7 +60,17 @@ const items = ref([
       '기존 간편 배송 조회 기능이 크롤링에 취약하여 결과 페이지를 이미지로 출력 보안 강화'
     ],
     taskDesc: '통합 페이지, 반응형, 크롤링방어',
-    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins'
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins',
+    imgKey: true,
+    imgList: [
+      '/homepage/homepage_mov.mp4',
+      '/homepage/homepage1.png',
+      '/homepage/homepage2.png',
+      '/homepage/homepage3.png',
+      '/homepage/homepage4.png',
+      '/homepage/homepage5.png',
+      '/homepage/homepage6.png',
+    ]
   },
   {
     color: '#41B883',
@@ -172,6 +191,62 @@ watch(mobile, (afterMobile, beforeMobile) => {
             :icon="item.icon"
             icon-color="#ffffff"
         >
+          <template v-slot:opposite>
+            <div style="width: 416px">
+              <v-carousel
+                  class="project-carousel"
+                  show-arrows="hover"
+                  color="black"
+                  height="350px"
+                  hide-delimiter-background
+                  v-if="item.imgKey"
+              >
+                <template v-slot:prev="{ props }">
+                  <v-btn
+                      class="project-carousel-icon"
+                      size="0"
+                      variant="plain"
+                      color="black"
+                      @click="props.onClick"
+                      icon
+                  >
+                    <v-icon
+                    size="35"
+                    >mdi-chevron-left</v-icon>
+
+                  </v-btn>
+                </template>
+                <template v-slot:next="{ props }">
+                  <v-btn
+                      class="project-carousel-icon"
+                      size="0"
+                      variant="plain"
+                      color="black"
+                      @click="props.onClick"
+                  >
+                    <v-icon
+                        size="35"
+                    >mdi-chevron-right</v-icon>
+                  </v-btn>
+                </template>
+                <v-carousel-item
+                    v-for="(img, i) in item.imgList"
+                    :key="i"
+                    cover
+                >
+                  <div v-if="i == 0">
+                    <video
+                        controls
+                        autoplay
+                        width="400"
+                        :src="img"></video>
+                  </div>
+                  <v-img :src="img" v-if="i > 0"></v-img>
+
+                </v-carousel-item>
+              </v-carousel>
+            </div>
+          </template>
           <v-card class="bg-white">
             <v-card-title class="pa-4">
               <div class="text-h5 font-bold">{{ item.name }}</div>
