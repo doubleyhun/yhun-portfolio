@@ -38,7 +38,6 @@ const items = ref([
     techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins, Babel, ESLint',
     imgKey: true,
     imgList: [
-      '/smart/homepage_mov.mp4',
       '/smart/smart1.png',
       '/smart/smart2.png',
       '/smart/smart3.png',
@@ -63,7 +62,6 @@ const items = ref([
     techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins',
     imgKey: true,
     imgList: [
-      '/homepage/homepage_mov.mp4',
       '/homepage/homepage1.png',
       '/homepage/homepage2.png',
       '/homepage/homepage3.png',
@@ -179,6 +177,7 @@ watch(mobile, (afterMobile, beforeMobile) => {
   <v-row>
     <div class="mx-auto">
       <v-timeline
+          side="end"
           :density="timeLineDensity"
           truncate-line="end"
           align="center">
@@ -192,6 +191,12 @@ watch(mobile, (afterMobile, beforeMobile) => {
             icon-color="#ffffff"
         >
           <template v-slot:opposite>
+            <v-img
+                :width="550"
+                v-if="item.imgKey"
+                :src="item.imgList[0]"></v-img>
+          </template>
+<!--          <template v-slot:opposite>
             <div style="width: 416px">
               <v-carousel
                   class="project-carousel"
@@ -246,7 +251,7 @@ watch(mobile, (afterMobile, beforeMobile) => {
                 </v-carousel-item>
               </v-carousel>
             </div>
-          </template>
+          </template>-->
           <v-card class="bg-white">
             <v-card-title class="pa-4">
               <div class="text-h5 font-bold">{{ item.name }}</div>
