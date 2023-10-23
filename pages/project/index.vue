@@ -43,7 +43,8 @@ const items = ref([
       '/smart/smart3.png',
       '/smart/smart4.png',
       '/smart/smart5.png',
-    ]
+    ],
+    selectImg: '/smart/smart1.png'
   },
   {
     color: '#41B883',
@@ -68,7 +69,8 @@ const items = ref([
       '/homepage/homepage4.png',
       '/homepage/homepage5.png',
       '/homepage/homepage6.png',
-    ]
+    ],
+    selectImg: '/homepage/homepage1.png'
   },
   {
     color: '#41B883',
@@ -151,6 +153,10 @@ const linkPage = (linkURL) => {
   window.open(linkURL, '_blank')
 }
 
+const changeImg = (object, imgUrl) => {
+  object.selectImg = imgUrl
+}
+
 onMounted(() => {
   if (mobile.value) {
     timeLineDensity.value = 'compact'
@@ -192,73 +198,47 @@ watch(mobile, (afterMobile, beforeMobile) => {
         >
           <template v-slot:opposite>
             <v-img
-                :width="550"
+                class="mb-3"
+                :width="450"
                 v-if="item.imgKey"
-                :src="item.imgList[0]"></v-img>
-          </template>
-<!--          <template v-slot:opposite>
-            <div style="width: 416px">
-              <v-carousel
-                  class="project-carousel"
-                  show-arrows="hover"
-                  color="black"
-                  height="350px"
-                  hide-delimiter-background
-                  v-if="item.imgKey"
-              >
-                <template v-slot:prev="{ props }">
-                  <v-btn
-                      class="project-carousel-icon"
-                      size="0"
-                      variant="plain"
-                      color="black"
-                      @click="props.onClick"
-                      icon
-                  >
-                    <v-icon
-                    size="35"
-                    >mdi-chevron-left</v-icon>
-
-                  </v-btn>
-                </template>
-                <template v-slot:next="{ props }">
-                  <v-btn
-                      class="project-carousel-icon"
-                      size="0"
-                      variant="plain"
-                      color="black"
-                      @click="props.onClick"
-                  >
-                    <v-icon
-                        size="35"
-                    >mdi-chevron-right</v-icon>
-                  </v-btn>
-                </template>
-                <v-carousel-item
-                    v-for="(img, i) in item.imgList"
-                    :key="i"
-                    cover
+                :src="item.selectImg"></v-img>
+            <v-row
+                class="fill-height"
+                align="center"
+                justify="center"
+            >
+              <template v-for="(img, i) in item.imgList"
+                        :key="i">
+                <v-col
+                    cols="4"
                 >
-                  <div v-if="i == 0">
-                    <video
-                        controls
-                        autoplay
-                        width="400"
-                        :src="img"></video>
-                  </div>
-                  <v-img :src="img" v-if="i > 0"></v-img>
-
-                </v-carousel-item>
-              </v-carousel>
-            </div>
-          </template>-->
-          <v-card class="bg-white">
+                  <v-hover
+                      class="project-hover"
+                      v-slot="{ isHovering, props }">
+                    <v-card
+                        :elevation="isHovering ? 12 : 2"
+                        :class="{ 'on-hover': isHovering }"
+                        v-bind="props"
+                    >
+                      <v-img
+                          class="cursor-pointer"
+                          :src="img"
+                          height="80px"
+                          cover
+                          @click="changeImg(item, img)"
+                      ></v-img>
+                    </v-card>
+                  </v-hover>
+                </v-col>
+              </template>
+            </v-row>
+          </template>
+          <v-card class="bg-white my-10">
             <v-card-title class="pa-4">
               <div class="text-h5 font-bold">{{ item.name }}</div>
             </v-card-title>
             <v-card-text class="bg-white text--primarym">
               <div>{{ item.dateRange }}</div>
-              <div>GIF 들어갈 공간</div>
               <div class="text-h6 mt-5 mb-2">Summary</div>
               <div
                   class="mb-2 display-flex"
