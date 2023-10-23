@@ -43,6 +43,7 @@ const items = ref([
       '/smart/smart3.png',
       '/smart/smart4.png',
       '/smart/smart5.png',
+      '/smart/smart6.png',
     ],
     selectImg: '/smart/smart1.png'
   },
