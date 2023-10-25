@@ -20,6 +20,16 @@ const items = ref([
     ],
     taskDesc: '리뉴얼, 알림톡, 친구톡, 템플릿대시보드, 결제',
     techDesc: 'Vue(Nuxt.js), Vuetify, SASS, Jenkins, Babel, ESLint',
+    imgKey: true,
+    imgList: [
+      '/bizm/bizm1.png',
+      '/bizm/bizm2.png',
+      '/bizm/bizm3.png',
+      '/bizm/bizm4.png',
+      '/bizm/bizm5.png',
+      '/bizm/bizm6.png',
+    ],
+    selectImg: '/bizm/bizm1.png'
   },
   {
     color: '#41B883',
@@ -87,7 +97,17 @@ const items = ref([
       '사내 백오피스 방향 제시 및 제작으로 운영팀 업무 과다 해소',
     ],
     taskDesc: '백오피스, 대시보드, 데이터 시각화, 모듈화',
-    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins'
+    techDesc: 'Vue, Nuxt.js, Vuetify, SASS, Jenkins',
+    imgKey: true,
+    imgList: [
+      '/11st/11st1.png',
+      '/11st/11st2.png',
+      '/11st/11st3.png',
+      '/11st/11st4.png',
+      '/11st/11st5.png',
+      '/11st/11st6.png',
+    ],
+    selectImg: '/11st/11st1.png'
   },
   {
     color: '#41B883',
@@ -103,7 +123,17 @@ const items = ref([
       'AngularJs 기반 개발에서 Vue기반으로 리뉴얼 진행중 (현재 랜딩페이지만 완료)'
     ],
     taskDesc: 'UI기획, APIKEY관리, 서비스 자동화, 자동결제, 리뉴얼',
-    techDesc: 'Vue, AngularJs, Bootstrap, Jenkins'
+    techDesc: 'Vue, AngularJs, Bootstrap, Jenkins',
+    imgKey: true,
+    imgList: [
+      '/smartapi/smartapi1.png',
+      '/smartapi/smartapi2.png',
+      '/smartapi/smartapi3.png',
+      '/smartapi/smartapi4.png',
+      '/smartapi/smartapi5.png',
+      '/smartapi/smartapi6.png',
+    ],
+    selectImg: '/smartapi/smartapi1.png',
   },
   {
     color: '#f44336',
