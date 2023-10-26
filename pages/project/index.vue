@@ -6,7 +6,6 @@ const timeLineDensity = ref('default')
 const itmeWidth = ref(440)
 const dialogKey = ref(false)
 const dialogImgUrl = ref('')
-const dialogTitle = ref('')
 const items = ref([
   {
     color: '#41B883',
@@ -31,6 +30,7 @@ const items = ref([
       '/bizm/bizm4.png',
       '/bizm/bizm5.png',
       '/bizm/bizm6.png',
+      '/bizm/bizm7.png',
     ],
     selectImg: '/bizm/bizm1.png'
   },
@@ -56,7 +56,7 @@ const items = ref([
       '/smart/smart3.png',
       '/smart/smart4.png',
       '/smart/smart5.png',
-      '/smart/smart6.png',
+      '/smart/smart6.png'
     ],
     selectImg: '/smart/smart1.png'
   },
@@ -273,17 +273,12 @@ watch(mobile, (afterMobile, beforeMobile) => {
                         크게 보기
                       </v-btn>
                     </div>
-
                   </v-img>
                 </v-card>
               </v-hover>
             </div>
-            <v-sheet
-                max-width="450"
-            >
-              <v-slide-group
-                  show-arrows
-              >
+            <v-sheet max-width="450">
+              <v-slide-group show-arrows>
                 <v-slide-group-item
                     v-for="(img, i) in item.imgList"
                     :key="i"
@@ -303,36 +298,6 @@ watch(mobile, (afterMobile, beforeMobile) => {
                 </v-slide-group-item>
               </v-slide-group>
             </v-sheet>
-<!--            <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
-            >
-              <template v-for="(img, i) in item.imgList"
-                        :key="i">
-                <v-col
-                    class="pb-0"
-                    cols="4"
-                >
-                  <v-hover
-                      v-slot="{ isHovering, props }">
-                    <v-card
-                        :elevation="isHovering ? 5 : 2"
-                        :class="{ 'on-hover': isHovering }"
-                        v-bind="props"
-                    >
-                      <v-img
-                          class="cursor-pointer"
-                          :src="img"
-                          height="80px"
-                          cover
-                          @click="changeImg(item, img)"
-                      ></v-img>
-                    </v-card>
-                  </v-hover>
-                </v-col>
-              </template>
-            </v-row>-->
           </template>
           <v-card class="bg-white my-10">
             <v-card-title class="pa-4">
