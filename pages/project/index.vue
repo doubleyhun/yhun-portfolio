@@ -1,9 +1,12 @@
 <script setup>
-import {useDisplay} from "vuetify"
+import {useDisplay} from 'vuetify'
 
 const {mobile} = useDisplay()
 const timeLineDensity = ref('default')
 const itmeWidth = ref(440)
+const dialogKey = ref(false)
+const dialogImgUrl = ref('')
+const dialogTitle = ref('')
 const items = ref([
   {
     color: '#41B883',
@@ -188,15 +191,16 @@ const changeImg = (object, imgUrl) => {
   object.selectImg = imgUrl
 }
 
+const openImgDialog = (imgUrl) => {
+  dialogKey.value = true
+  dialogImgUrl.value = imgUrl
+}
+
 onMounted(() => {
   if (mobile.value) {
     timeLineDensity.value = 'compact'
     itmeWidth.value = 310
   }
-})
-
-onBeforeMount(() => {
-
 })
 
 watch(mobile, (afterMobile, beforeMobile) => {
@@ -211,6 +215,21 @@ watch(mobile, (afterMobile, beforeMobile) => {
 </script>
 
 <template>
+  <template>
+    <v-dialog
+        v-model="dialogKey"
+        width="1280"
+    >
+      <v-card>
+        <v-img :src="dialogImgUrl"></v-img>
+        <v-card-actions class="justify-end">
+          <v-btn color="blue"
+                 @click="dialogKey = false">닫기
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </template>
   <v-row>
     <div class="mx-auto">
       <v-timeline
@@ -228,12 +247,63 @@ watch(mobile, (afterMobile, beforeMobile) => {
             icon-color="#ffffff"
         >
           <template v-slot:opposite>
-            <v-img
-                class="mb-3"
-                :width="450"
-                v-if="item.imgKey"
-                :src="item.selectImg"></v-img>
-            <v-row
+            <div class="mb-6">
+              <v-hover
+                  v-slot="{ isHovering, props }">
+                <v-card
+                    :elevation="isHovering ? 5 : 2"
+                    :class="{ 'on-hover': isHovering }"
+                    v-bind="props"
+                >
+                  <v-img
+                      :width="450"
+                      v-if="item.imgKey"
+                      :src="item.selectImg">
+                    <div
+                        class="pa-2 text-right">
+                      <v-btn
+                          rounded="lg"
+                          color="white"
+                          prepend-icon="mdi-open-in-new"
+                          @click="openImgDialog(item.selectImg)"
+                      >
+                        <template v-slot:prepend>
+                          <v-icon color="blue"></v-icon>
+                        </template>
+                        크게 보기
+                      </v-btn>
+                    </div>
+
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </div>
+            <v-sheet
+                max-width="450"
+            >
+              <v-slide-group
+                  show-arrows
+              >
+                <v-slide-group-item
+                    v-for="(img, i) in item.imgList"
+                    :key="i"
+                >
+                  <v-card
+                      elevation="2"
+                      class="ml-7"
+                  >
+                    <v-img
+                        class="cursor-pointer"
+                        :src="img"
+                        width="150px"
+                        cover
+                        @click="changeImg(item, img)"
+                    ></v-img>
+                  </v-card>
+                </v-slide-group-item>
+              </v-slide-group>
+            </v-sheet>
+<!--            <v-row
                 class="fill-height"
                 align="center"
                 justify="center"
@@ -241,13 +311,13 @@ watch(mobile, (afterMobile, beforeMobile) => {
               <template v-for="(img, i) in item.imgList"
                         :key="i">
                 <v-col
+                    class="pb-0"
                     cols="4"
                 >
                   <v-hover
-                      class="project-hover"
                       v-slot="{ isHovering, props }">
                     <v-card
-                        :elevation="isHovering ? 12 : 2"
+                        :elevation="isHovering ? 5 : 2"
                         :class="{ 'on-hover': isHovering }"
                         v-bind="props"
                     >
@@ -262,7 +332,7 @@ watch(mobile, (afterMobile, beforeMobile) => {
                   </v-hover>
                 </v-col>
               </template>
-            </v-row>
+            </v-row>-->
           </template>
           <v-card class="bg-white my-10">
             <v-card-title class="pa-4">
@@ -301,5 +371,4 @@ watch(mobile, (afterMobile, beforeMobile) => {
 </template>
 
 <style scoped>
-
 </style>
