@@ -288,9 +288,10 @@ watch(mobile, (afterMobile, beforeMobile) => {
                       class="ml-7"
                   >
                     <v-img
-                        class="cursor-pointer"
                         :src="img"
-                        width="150px"
+                        class="cursor-pointer"
+                        width="150"
+                        height="110"
                         cover
                         @click="changeImg(item, img)"
                     ></v-img>
