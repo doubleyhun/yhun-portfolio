@@ -6,6 +6,7 @@ const timeLineDensity = ref('default')
 const itmeWidth = ref(440)
 const dialogKey = ref(false)
 const dialogImgUrl = ref('')
+const mobileKey = ref(false)
 const items = ref([
   {
     color: '#41B883',
@@ -200,6 +201,7 @@ onMounted(() => {
   if (mobile.value) {
     timeLineDensity.value = 'compact'
     itmeWidth.value = 310
+    mobileKey.value = true
   }
 })
 
@@ -207,9 +209,11 @@ watch(mobile, (afterMobile, beforeMobile) => {
   if (afterMobile) {
     timeLineDensity.value = 'compact'
     itmeWidth.value = 310
+    mobileKey.value = true
   } else {
     timeLineDensity.value = 'default'
     itmeWidth.value = 440
+    mobileKey.value = false
   }
 })
 </script>
@@ -278,14 +282,16 @@ watch(mobile, (afterMobile, beforeMobile) => {
               </v-hover>
             </div>
             <v-sheet max-width="450">
-              <v-slide-group show-arrows>
+              <v-slide-group
+                  class="back-white"
+                  show-arrows>
                 <v-slide-group-item
                     v-for="(img, i) in item.imgList"
                     :key="i"
                 >
                   <v-card
                       elevation="2"
-                      class="ml-7"
+                      class="ml-7 my-1"
                   >
                     <v-img
                         :src="img"
@@ -300,7 +306,20 @@ watch(mobile, (afterMobile, beforeMobile) => {
               </v-slide-group>
             </v-sheet>
           </template>
-          <v-card class="bg-white my-10">
+          <div v-if="mobileKey && i == 0" class="text-14">
+            <v-alert
+                color="blue"
+                theme="dark"
+                icon="mdi-laptop"
+                prominent
+            >
+              PC 환경에서는 각 프로젝트의 미리보기 화면을 볼 수 있습니다.
+            </v-alert>
+
+          </div>
+          <v-card
+              elevation="2"
+              class="bg-white my-10">
             <v-card-title class="pa-4">
               <div class="text-h5 font-bold">{{ item.name }}</div>
             </v-card-title>
