@@ -13,7 +13,7 @@ const items = ref([
     icon: 'mdi-nuxt',
     name: '비즈엠',
     dateRange: '2021 ~ 2023',
-    linkKey: true,
+    linkKey: false,
     linkURL: 'http://dev-bizm-renewal.bizmsg.kr/',
     summaryDesc: [
       '카카오톡 알림톡, 친구톡 공식 딜러 서비스 `비즈엠` 리뉴얼 작업 진행',
@@ -40,7 +40,7 @@ const items = ref([
     icon: 'mdi-nuxt',
     name: '스MART',
     dateRange: '2019',
-    linkKey: true,
+    linkKey: false,
     linkURL: 'http://14.129.18.228/',
     summaryDesc: [
       '마트 상품 최저가 검색 비교 솔루션',
