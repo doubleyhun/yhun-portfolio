@@ -1,38 +1,45 @@
 version: 2.1
+
 jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: cimg/node:18.17.0
+      # Node 18 -> Node 20 이상으로 업데이트
+      - image: cimg/node:20.17
+
     steps:
-      # 1
       - checkout
+
+      # NPM 최신화 - sudo 제거 (권한 오류 방지)
       - run:
-          name: Update NPM
-          command: "sudo npm install -g npm"
+          name: Update NPM to latest
+          command: npm install -g npm@latest
+
+      # Install & Cache Dependencies
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      # 2
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+
       - run:
           name: Install Dependencies
-          command: npm install
+          command: npm ci
+
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      # 3
+
+      # Nuxt Static Build
       - run:
-          name: Nuxt3 Build
+          name: Nuxt Generate
           command: npm run generate
-      - save_cache:
-          key: nuxt3-public-cache-{{ .Branch }}
-          paths:
-            - ./.output/public
-      # 4
+
+      # Firebase Hosting Deploy
       - run:
-          name: Deploy app to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --only hosting:doubleyhun-382c0
-# 5
+          name: Deploy to Firebase Hosting
+          command: npx firebase deploy --only hosting --token $FIREBASE_TOKEN
+
 workflows:
   version: 2
   build-deploy:
@@ -40,5 +47,4 @@ workflows:
       - build:
           filters:
             branches:
-              only:
-                - main
+              only: main
