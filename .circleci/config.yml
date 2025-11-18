@@ -4,18 +4,13 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      # Node 18 -> Node 20 이상으로 업데이트
       - image: cimg/node:20.17
 
     steps:
       - checkout
 
-      # NPM 최신화 - sudo 제거 (권한 오류 방지)
-      - run:
-          name: Update NPM to latest
-          command: npm install -g npm@latest
+      # Remove npm update step (it caused permission issues)
 
-      # Install & Cache Dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
@@ -30,12 +25,10 @@ jobs:
           paths:
             - ./node_modules
 
-      # Nuxt Static Build
       - run:
           name: Nuxt Generate
           command: npm run generate
 
-      # Firebase Hosting Deploy
       - run:
           name: Deploy to Firebase Hosting
           command: npx firebase deploy --only hosting --token $FIREBASE_TOKEN
