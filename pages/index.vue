@@ -6,7 +6,7 @@ const yhun = ref('/yhun.png')
 const IntroDesc = ref(
     '안녕하세요 양영훈입니다.\n' +
     '\n' +
-    '10년차 FE 개발자입니다.\n' +
+    '13년차 FE 개발자입니다.\n' +
     '데이터의 시각화, 직관적이고 편리한 UI 개발을 통해 사용자 친화적인 UX 결과물을 도출하여 비즈니스에 기여하는 일을 최고의 목표로 삼습니다.'
 )
 const experienceDesc = ref(
@@ -72,10 +72,18 @@ watch(mobile, (afterMobile, beforeMobile) => {
         <div class="mb-6">
           <v-row>
             <v-col cols="4">
+              <div>2024.10 ~ </div>
+            </v-col>
+            <v-col cols="8">
+              <div>디윅스 AIX팀 FE 개발자</div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="4">
               <div>2017.01 ~ 2023.11</div>
             </v-col>
             <v-col cols="8">
-              <div>써머스플랫폼 스윗트래커CIC UXD팀 FE 개발자</div>
+              <div>스윗트래커 UXD팀 FE 개발자</div>
             </v-col>
           </v-row>
           <v-row>
@@ -95,11 +103,22 @@ watch(mobile, (afterMobile, beforeMobile) => {
                 class="my-2"
                 border="start"
                 variant="tonal"
-                color="#FFD600"
+                color="#3178c6"
                 theme="dark"
-                icon="mdi-language-javascript"
+                icon="mdi-language-typescript"
                 prominent
-                title="Javascript"
+                title="TypeScript"
+            >
+            </v-alert>
+            <v-alert
+                class="my-2"
+                border="start"
+                variant="tonal"
+                color="#58c4dc"
+                theme="dark"
+                icon="mdi-react"
+                prominent
+                title="React"
             >
             </v-alert>
             <v-alert
@@ -117,24 +136,11 @@ watch(mobile, (afterMobile, beforeMobile) => {
                 class="my-2"
                 border="start"
                 variant="tonal"
-                color="#41B883"
+                color="#3399ff"
                 theme="dark"
-                icon="mdi-nuxt"
+                icon="mdi-material-ui"
                 prominent
-                title="Nuxt"
-            >
-            </v-alert>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-alert
-                class="my-2"
-                border="start"
-                variant="tonal"
-                color="blue"
-                theme="dark"
-                icon="$vuetify"
-                prominent
-                title="Vuetify"
+                title="Material-UI"
             >
             </v-alert>
             <v-alert
@@ -146,6 +152,52 @@ watch(mobile, (afterMobile, beforeMobile) => {
                 icon="mdi-language-html5"
                 prominent
                 title="HTML/CSS"
+            >
+            </v-alert>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-alert
+                class="my-2"
+                border="start"
+                variant="tonal"
+                color="#FFD600"
+                theme="dark"
+                icon="mdi-language-javascript"
+                prominent
+                title="Javascript"
+            >
+            </v-alert>
+            <v-alert
+                class="my-2"
+                border="start"
+                variant="tonal"
+                color="#58c4dc"
+                theme="dark"
+                icon="mdi-nextJs"
+                prominent
+                title="Next"
+            >
+            </v-alert>
+            <v-alert
+                class="my-2"
+                border="start"
+                variant="tonal"
+                color="#41B883"
+                theme="dark"
+                icon="mdi-nuxt"
+                prominent
+                title="Nuxt"
+            >
+            </v-alert>
+            <v-alert
+                class="my-2"
+                border="start"
+                variant="tonal"
+                color="blue"
+                theme="dark"
+                icon="$vuetify"
+                prominent
+                title="Vuetify"
             >
             </v-alert>
             <v-alert
@@ -169,7 +221,8 @@ watch(mobile, (afterMobile, beforeMobile) => {
               <div>2006.03 ~ 2012.08</div>
             </v-col>
             <v-col cols="8">
-              <div>한남대학교 멀티미디어 공학, 미디어영상학 학사</div>
+              <div>한남대학교</div>
+              <div>멀티미디어 공학, 미디어영상학 학사</div>
             </v-col>
           </v-row>
         </div>
