@@ -2,12 +2,12 @@
 export default defineNuxtConfig({
     app: {
         head: {
-            title: "DoubleYhun Portfolio",
+            title: "doubleyhun portfolio",
             meta: [
                 { name: "description", content: "FE개발자 양영훈 포트폴리오" },
 
                 // Open Graph
-                { property: "og:title", content: "DoubleYhun Portfolio" },
+                { property: "og:title", content: "doubleyhun portfolio" },
                 { property: "og:description", content: "FE개발자 양영훈 포트폴리오" },
                 { property: "og:image", content: "https://doubleyhun-382c0.web.app/yhun.png" },
                 { property: "og:url", content: "https://doubleyhun-382c0.web.app/" },
