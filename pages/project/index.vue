@@ -9,12 +9,26 @@ const dialogImgUrl = ref('')
 const mobileKey = ref(false)
 const items = ref([
   {
+    color: '#58c4dc',
+    icon: 'mdi-react',
+    name: 'IBK 정책자금 대출 시스템',
+    dateRange: '2024 ~ 2025',
+    linkKey: false,
+    summaryDesc: [
+      'IBK 기업은행 기업 대출 시스템 재 구축 화면 개발 팀장',
+      'React(Next.js) 기반으로 아키텍처 설계',
+      '앱 라우팅을 유지하면서 페이지 전체를 컴포넌트화 하여 탭별 이동간 데이터 및 입력값 유지 기능을 스토리지 없이 구현',
+      '복잡한 인터렉션, 유효성 검증이 필요한 대출 Form을 상태관리와 공용 컴포넌트를 통해 체계화하여 퍼포먼스 및 유지 보수성 개선',
+    ],
+    taskDesc: '은행시스템, 대출신청, 공고대시보드, 결재',
+    techDesc: 'React(Next.js), Tanstack-query, Zustand, AgGrid, Ant Design, emotion, Styled-components, ESLint',
+  },
+  {
     color: '#41B883',
     icon: 'mdi-nuxt',
     name: '비즈엠',
     dateRange: '2021 ~ 2023',
     linkKey: false,
-    linkURL: 'http://dev-bizm-renewal.bizmsg.kr/',
     summaryDesc: [
       '카카오톡 알림톡, 친구톡 공식 딜러 서비스 `비즈엠` 리뉴얼 작업 진행',
       'Django기반에서 Vue(Nuxt.js)기반으로 FE 리뉴얼',
@@ -41,7 +55,6 @@ const items = ref([
     name: '스MART',
     dateRange: '2019',
     linkKey: false,
-    linkURL: 'http://14.129.18.228/',
     summaryDesc: [
       '마트 상품 최저가 검색 비교 솔루션',
       '카테고리, 필터별 상품 상세 검색 및 장바구니 기능 구현',
@@ -92,8 +105,7 @@ const items = ref([
     icon: 'mdi-nuxt',
     name: '11번가 배송조회 추적 관리',
     dateRange: '2017',
-    linkKey: true,
-    linkURL: 'http://11st-admin.sweettracker.net/',
+    linkKey: false,
     summaryDesc: [
       '대형 고객들의 니즈를 충족하기 위해 대시보드 위주의 관리 페이지 제작',
       '생산성 증대를 위해 Nuxt.js 도입',

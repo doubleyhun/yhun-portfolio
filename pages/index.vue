@@ -337,8 +337,15 @@ watch(mobile, (afterMobile, beforeMobile) => {
               <div>2006.03 ~ 2012.08</div>
             </v-col>
             <v-col cols="8">
-              <div>한남대학교</div>
-              <div>멀티미디어 공학, 미디어영상학 학사</div>
+              <template v-if="mdAndUp">
+                <div>한남대학교</div>
+                <div>멀티미디어공학, 미디어영상학 학사</div>
+              </template>
+              <template v-else>
+                <div>한남대학교</div>
+                <div>멀티미디어공학</div>
+                <div>미디어영상학 학사</div>
+              </template>
             </v-col>
           </v-row>
         </div>
